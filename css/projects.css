@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #000000;
+    color: #ededed;
+    /* overflow: hidden; */
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    position: relative;
+    font-size: 25px;
+    color: #ededed; 
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    animation: showRight 1s ease forwards;
+    animation-delay: .4s;
+}
+
+.navbar{
+    background: #000000;
+    background-size: cover;
+    position: relative;
+    display: flex;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 35px;
+    transition: .3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #720E07;
+}
+
+
+
+/* PROJECTS CSS */
+.projects {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 250px 10% 0;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+  
+.project-card {
+    background-color: #111111;
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative; /* For positioning the pseudo-element */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Trailing border effect */
+.project-card::after {
+    content: "";
+    position: absolute;
+    top: 0px; /* Adjust for border size */
+    left: 0px; /* Adjust for border size */
+    right: 0px; /* Adjust for border size */
+    bottom: 0px; /* Adjust for border size */
+    border-radius: 20px; /* Adjust to match the card's border-radius */
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        #720E07 50%,
+        transparent 100%
+    );
+    background-size: 200% 200%; /* Double the size for smooth animation */
+    animation: traceCircle 3s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1; /* Place it above the card */
+    pointer-events: none; /* Ensure it doesn't interfere with hover */
+    /* Clip the gradient to the border only */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 4px; /* Border width */
+}
+
+.project-card:hover::after {
+    opacity: 1;
+}
+
+@keyframes traceCircle {
+    0% {
+        background-position: 100% 0; /* Start offscreen to the right */
+    }
+    100% {
+        background-position: -100% 0; /* Move offscreen to the left */
+    }
+}
+  
+  .project-card h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 1rem;
+  }
+  
+  .project-card i {
+    font-size: 80px;
+    color: #720E07;
+    margin-bottom: 1rem;
+  }
+  
+  .project-card p {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 1rem 0;
+  }
+  
+  .project-card a {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 2rem;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  
+  .project-card a:hover {
+    background-color: #014da3;
+    scale: 110%
+  }
+
+
+
+/* KEYFRAMES ANIMATIONS */
+
+@keyframes showRight {
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes manipActiveHover{
+    100%{
+        pointer-events: auto;
+    }
+}
