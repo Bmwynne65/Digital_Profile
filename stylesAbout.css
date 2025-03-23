@@ -631,10 +631,21 @@ body {
 .edu_groupBx .value b span {
     position: relative;
     top: -2px;
-    font-size: 0.8em;
+    font-size: 1.2em;
     color: #fff;
     padding-top: 4px;
+    font-weight: 700;
 }
+
+.edu_groupBx .value p {
+    position: relative;
+    font-size: .9em;
+    color: #fff;
+    padding-top: -10px;
+    font-weight: 500;
+}
+
+
 
 .hobbies h4 {
     font-size: 1.1em;
