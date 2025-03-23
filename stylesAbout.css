@@ -468,6 +468,7 @@ body {
 .container {
     position: relative;
     width: 100%;
+    max-width: 1000px;
     background: #080808;
     background: linear-gradient(45deg, #000000, #141414);
     /* background: #ff0000; */
@@ -679,6 +680,35 @@ body {
 .hobbies ul li i {
     font-size: 2em;
 }
+
+/* Remove default list style for the nested lists */
+.hobbies ul.sub-hobby {
+    list-style: none;
+    padding-left: 20px; /* Indent nested bullet items */
+    margin-top: 10px;
+}
+
+/* Style each nested bullet item */
+.hobbies ul.sub-hobby li {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Adjust spacing between the bullet and text */
+    margin-bottom: 5px;
+}
+
+/* Style the bullet so it’s a smaller version of the category icon */
+.hobbies ul.sub-hobby li .bullet {
+    font-size: 0.8em; /* Adjust size as needed */
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Optional: Style the sub-text if needed */
+.hobbies ul.sub-hobby li .sub-text {
+    font-size: 0.95em;
+}
+  
+
 
 .right_side {
     padding-top: 0px;
